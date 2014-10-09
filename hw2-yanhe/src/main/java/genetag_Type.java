@@ -14,7 +14,7 @@ import edu.cmu.deiis.types.Annotation_Type;
 
 
 /** 
- * Updated by JCasGen Thu Oct 09 16:12:31 EDT 2014
+ * Updated by JCasGen Thu Oct 09 17:10:57 EDT 2014
  * @generated */
 public class genetag_Type extends Annotation_Type {
   /** @generated 

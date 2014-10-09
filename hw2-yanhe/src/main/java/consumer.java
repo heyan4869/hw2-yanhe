@@ -31,7 +31,7 @@ public class consumer extends CasConsumer_ImplBase {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		System.out.println("consumer initialized");
+		System.out.println("Consumer initialized");
 		JCas jcas;
 	    try {
 	      jcas = aCAS.getJCas();
@@ -69,11 +69,11 @@ public class consumer extends CasConsumer_ImplBase {
 			}
 			
 	    }
-	    System.out.println("system performance");
+	    System.out.println("System performance");
 	    BufferedReader my = null,sample=null;
 	    int myall = 0;
 	    int all = 0;
-	    int hit =0;
+	    int hit = 0;
 	    try {
 			sample = new BufferedReader(new FileReader("src/main/resources/sample.out"));
 			my = new BufferedReader(new FileReader("src/main/resources/outputfile.out"));
@@ -114,9 +114,9 @@ public class consumer extends CasConsumer_ImplBase {
 		double precision = (double)hit/(double)myall;
 		double recall = (double)hit/(double)all;
 		double fmeasure = 2*precision*recall/(precision+recall);
-		System.out.println("precision is " + precision);
-		System.out.println("recall is " + recall);
-		System.out.println("f-measure is " + fmeasure);
+		System.out.println("Precision is " + precision);
+		System.out.println("Recall is " + recall);
+		System.out.println("F-measure is " + fmeasure);
 	}
 	
 	public void writeIntoFile(String geneIdentifier, String geneName, int start, int end)
