@@ -108,9 +108,7 @@ public class consumer extends CasConsumer_ImplBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//System.out.println(hit);
-		//System.out.println(myall);
-		//System.out.println(all);
+
 		double precision = (double)hit/(double)myall;
 		double recall = (double)hit/(double)all;
 		double fmeasure = 2*precision*recall/(precision+recall);
@@ -119,9 +117,9 @@ public class consumer extends CasConsumer_ImplBase {
 		System.out.println("F-measure is " + fmeasure);
 	}
 	
-	public void writeIntoFile(String geneIdentifier, String geneName, int start, int end)
+	public void writeIntoFile(String geneId, String geneContent, int start, int end)
 			throws Exception {
-		buf.write(geneIdentifier + "|" + start + " " + end + "|" + geneName);
+		buf.write(geneId + "|" + start + " " + end + "|" + geneContent);
 		buf.newLine();
 		buf.flush();
 	}
