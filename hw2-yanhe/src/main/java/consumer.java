@@ -1,125 +1,130 @@
-
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.BufferedWriter;
+import java.util.HashSet;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.collection.CasConsumer_ImplBase;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceProcessException;
 import org.xml.sax.SAXException;
 
-/**
- * CasConsumer build a new file and save the gene name and ID that have been
- * extracted by geneFinder.
- * @author yanhe
- *
- */
+
 public class consumer extends CasConsumer_ImplBase {
-  public static final String PARAM_FILE= "OutputFile";
-  int docNum;
-  File out = null;
-  BufferedWriter bw = null;
+	private BufferedWriter buf;
+	public static final String PARAM_OUTPUTDIR = "OutputFile";
+	/**
+	 * process() write the gene ID,name,index into the disk file, which are got from geneAnalysis. 
+	 */
+	@Override
+	public void processCas(CAS aCAS) throws ResourceProcessException {
+		// TODO Auto-generated method stub
+		File out = new File(((String) getConfigParameterValue(PARAM_OUTPUTDIR)).trim());
+		try{			
+			buf = new BufferedWriter(new FileWriter(out));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		System.out.println("consumer initialized");
+		JCas jcas;
+	    try {
+	      jcas = aCAS.getJCas();
+	    } catch (CASException e) {
+	      throw new ResourceProcessException(e);
+	    }
+	    
+	    FSIterator it = jcas.getAnnotationIndex(gene.type).iterator();
+	    String geneId = "";
+	    String geneContent = "";
+	    // String processor = "";
+	    int start,end = -1;
+	    //double conf = 0.0; 
+	    
+	    while(it.hasNext()){
+	    	gene annotation = (gene) it.next();
+			geneId = annotation.getID();
+			geneContent = annotation.getContent();			
+			start = annotation.getBegin();
+			end = annotation.getEnd();
+			//conf = annotation.getConfidence();
+			//processor = annotation.getCasProcessorId();
 
-  /**
-   * initialize prepare to write the gene information into a file.
-   */
-  @Override
-  public void initialize() {
+			try {
+				writeIntoFile(geneId, geneContent, start, end);
+				//writeIntoFile(geneId, geneContent, start, end, conf, processor);
+				//System.out.println("writing~!");
+			} catch (IOException e) {
+				throw new ResourceProcessException(e);
+			} catch (SAXException e) {
+				throw new ResourceProcessException(e);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	    }
+	    System.out.println("system performance");
+	    BufferedReader my = null,sample=null;
+	    int myall = 0;
+	    int all = 0;
+	    int hit =0;
+	    try {
+			sample = new BufferedReader(new FileReader("src/main/resources/sample.out"));
+			my = new BufferedReader(new FileReader("src/main/resources/outputfile.out"));
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	    HashSet<String> myout = new HashSet<String>();
+	    try {
+	    	String temp = null;
+			while((temp = my.readLine()) != null){
+				myout.add(temp);
+				myall++;
+				//System.out.println(my.readLine());
+				
+			}
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			String key = null;
+			while((key = sample.readLine()) != null){
+				all++;
+				if(myout.contains(key))
+					hit++;
+				
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//System.out.println(hit);
+		//System.out.println(myall);
+		//System.out.println(all);
+		double precision = (double)hit/(double)myall;
+		double recall = (double)hit/(double)all;
+		double fmeasure = 2*precision*recall/(precision+recall);
+		System.out.println("precision is " + precision);
+		System.out.println("recall is " + recall);
+		System.out.println("f-measure is " + fmeasure);
+	}
+	
+	public void writeIntoFile(String geneIdentifier, String geneName, int start, int end)
+			throws Exception {
+		buf.write(geneIdentifier + "|" + start + " " + end + "|" + geneName);
+		buf.newLine();
+		buf.flush();
+	}
 
-    docNum = 0;
-    String OutputFile = (String) getConfigParameterValue(PARAM_FILE);
-    try {
-    //out = new File("src/main/resources/hw2-yanhe.out");
-    //System.out.println(fileOutput);
-    File out= new File(OutputFile);
-    bw = new BufferedWriter(new FileWriter(out));
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-
-  }
-  
-  /**
-   * processCas has the function that get the gene ID and name from the sentence
-   * and try to write it into a local file whose name is hw1-yanhe.out
-   */
-  @Override
-  public void processCas(CAS aCAS) throws ResourceProcessException {
-    // TODO Auto-generated method stub
-    JCas jcas = null;
-   
-    try {
-      jcas = aCAS.getJCas();
-    } catch (CASException e) {
-      //throw new CollectionException(e);
-    }
-    
-    // get the file's name of the input file from CAS
-    FSIterator<Annotation> iter = jcas.getAnnotationIndex(genetag.type).iterator();
-    System.out.println("Consuming CAS");
-    String geneID = "";
-    String geneContent = "";
-    int start = -1;
-    int end = -1;
-    
-    while (iter.hasNext()){
-      genetag annotation = (genetag) iter.next();
-      //System.out.println("Content output now");
-      System.out.println(annotation.getContent());
-      geneID = annotation.getID();
-      geneContent = annotation.getContent();
-      start = annotation.getBegin();
-      System.out.println(start);
-      end = annotation.getEnd();
-    
-    try {
-      writeInFile(geneID, geneContent, start, end);
-    } catch (IOException e) {
-      throw new ResourceProcessException(e);
-    } catch (SAXException e) {
-      throw new ResourceProcessException(e);
-    } catch (Exception e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-    }
-       
-  }
-  
-  /**
-   * writeInFile store the gene ID and name into the local file.
-   * @param geneIdentifier is the ID of the gene
-   * @param geneName is the name of the gene
-   * @param start is the first index of the gene's name in the sentence 
-   * @param end is the last index of the gene's name in the sentence 
-   */
-  public void writeInFile(String geneIdentifier, String geneName, int start, int end)
-          throws Exception {
-        bw.write(geneIdentifier + "|" + start + " " + end + "|" + geneName);
-        bw.newLine();
-        bw.flush();
-      }
-  
-  /**
-   * destroy ends the process of write the gene information into the file.
-   */
-  @Override
-  public void destroy() {
-
-    try {
-      if (bw != null) {
-        bw.close();
-        bw = null;
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
 
 }

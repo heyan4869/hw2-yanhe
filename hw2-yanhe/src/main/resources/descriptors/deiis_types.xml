@@ -82,7 +82,7 @@
   <typeDescription>
       <name>genetag</name>
       <description/>
-      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <supertypeName>edu.cmu.deiis.types.Annotation</supertypeName>
       <features>
         <featureDescription>
           <name>ID</name>
@@ -99,7 +99,24 @@
     <typeDescription>
       <name>sentence</name>
       <description/>
-      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <supertypeName>edu.cmu.deiis.types.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>ID</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>Content</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  <typeDescription>
+      <name>gene</name>
+      <description/>
+      <supertypeName>edu.cmu.deiis.types.Annotation</supertypeName>
       <features>
         <featureDescription>
           <name>ID</name>

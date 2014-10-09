@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Mon Oct 06 21:28:13 EDT 2014 */
+/* First created by JCasGen Thu Oct 09 16:12:31 EDT 2014 */
 
 import org.apache.uima.jcas.JCas; 
 import org.apache.uima.jcas.JCasRegistry;
@@ -13,12 +13,12 @@ import edu.cmu.deiis.types.Annotation;
  * Updated by JCasGen Thu Oct 09 16:12:31 EDT 2014
  * XML source: /Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/deiis_types.xml
  * @generated */
-public class sentence extends Annotation {
+public class gene extends Annotation {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(sentence.class);
+  public final static int typeIndexID = JCasRegistry.register(gene.class);
   /** @generated
    * @ordered 
    */
@@ -32,14 +32,14 @@ public class sentence extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected sentence() {/* intentionally empty block */}
+  protected gene() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public sentence(int addr, TOP_Type type) {
+  public gene(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -47,7 +47,7 @@ public class sentence extends Annotation {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public sentence(JCas jcas) {
+  public gene(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -57,7 +57,7 @@ public class sentence extends Annotation {
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
   */  
-  public sentence(JCas jcas, int begin, int end) {
+  public gene(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -83,18 +83,18 @@ public class sentence extends Annotation {
    * @return value of the feature 
    */
   public String getID() {
-    if (sentence_Type.featOkTst && ((sentence_Type)jcasType).casFeat_ID == null)
-      jcasType.jcas.throwFeatMissing("ID", "sentence");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((sentence_Type)jcasType).casFeatCode_ID);}
+    if (gene_Type.featOkTst && ((gene_Type)jcasType).casFeat_ID == null)
+      jcasType.jcas.throwFeatMissing("ID", "gene");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((gene_Type)jcasType).casFeatCode_ID);}
     
   /** setter for ID - sets  
    * @generated
    * @param v value to set into the feature 
    */
   public void setID(String v) {
-    if (sentence_Type.featOkTst && ((sentence_Type)jcasType).casFeat_ID == null)
-      jcasType.jcas.throwFeatMissing("ID", "sentence");
-    jcasType.ll_cas.ll_setStringValue(addr, ((sentence_Type)jcasType).casFeatCode_ID, v);}    
+    if (gene_Type.featOkTst && ((gene_Type)jcasType).casFeat_ID == null)
+      jcasType.jcas.throwFeatMissing("ID", "gene");
+    jcasType.ll_cas.ll_setStringValue(addr, ((gene_Type)jcasType).casFeatCode_ID, v);}    
    
     
   //*--------------*
@@ -105,18 +105,18 @@ public class sentence extends Annotation {
    * @return value of the feature 
    */
   public String getContent() {
-    if (sentence_Type.featOkTst && ((sentence_Type)jcasType).casFeat_Content == null)
-      jcasType.jcas.throwFeatMissing("Content", "sentence");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((sentence_Type)jcasType).casFeatCode_Content);}
+    if (gene_Type.featOkTst && ((gene_Type)jcasType).casFeat_Content == null)
+      jcasType.jcas.throwFeatMissing("Content", "gene");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((gene_Type)jcasType).casFeatCode_Content);}
     
   /** setter for Content - sets  
    * @generated
    * @param v value to set into the feature 
    */
   public void setContent(String v) {
-    if (sentence_Type.featOkTst && ((sentence_Type)jcasType).casFeat_Content == null)
-      jcasType.jcas.throwFeatMissing("Content", "sentence");
-    jcasType.ll_cas.ll_setStringValue(addr, ((sentence_Type)jcasType).casFeatCode_Content, v);}    
+    if (gene_Type.featOkTst && ((gene_Type)jcasType).casFeat_Content == null)
+      jcasType.jcas.throwFeatMissing("Content", "gene");
+    jcasType.ll_cas.ll_setStringValue(addr, ((gene_Type)jcasType).casFeatCode_Content, v);}    
   }
 
     

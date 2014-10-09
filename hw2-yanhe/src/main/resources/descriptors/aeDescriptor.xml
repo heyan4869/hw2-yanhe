@@ -9,6 +9,12 @@
     <delegateAnalysisEngine key="sentencefinder">
       <import location="sentencefinder.xml"/>
     </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="geneabner">
+      <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/geneabner.xml"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="chooseAnnotator">
+      <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/chooseAnnotator.xml"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>aeDescriptor</name>
@@ -21,6 +27,8 @@
       <fixedFlow>
         <node>sentencefinder</node>
         <node>genefinder</node>
+      <node>geneabner</node>
+      <node>chooseAnnotator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

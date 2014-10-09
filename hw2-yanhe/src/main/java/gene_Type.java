@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Mon Oct 06 21:28:13 EDT 2014 */
+/* First created by JCasGen Thu Oct 09 16:12:31 EDT 2014 */
 
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
@@ -12,11 +12,10 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 import edu.cmu.deiis.types.Annotation_Type;
 
-
 /** 
  * Updated by JCasGen Thu Oct 09 16:12:31 EDT 2014
  * @generated */
-public class sentence_Type extends Annotation_Type {
+public class gene_Type extends Annotation_Type {
   /** @generated 
    * @return the generator for this type
    */
@@ -26,25 +25,25 @@ public class sentence_Type extends Annotation_Type {
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
-  			 if (sentence_Type.this.useExistingInstance) {
+  			 if (gene_Type.this.useExistingInstance) {
   			   // Return eq fs instance if already created
-  		     FeatureStructure fs = sentence_Type.this.jcas.getJfsFromCaddr(addr);
+  		     FeatureStructure fs = gene_Type.this.jcas.getJfsFromCaddr(addr);
   		     if (null == fs) {
-  		       fs = new sentence(addr, sentence_Type.this);
-  			   sentence_Type.this.jcas.putJfsFromCaddr(addr, fs);
+  		       fs = new gene(addr, gene_Type.this);
+  			   gene_Type.this.jcas.putJfsFromCaddr(addr, fs);
   			   return fs;
   		     }
   		     return fs;
-        } else return new sentence(addr, sentence_Type.this);
+        } else return new gene(addr, gene_Type.this);
   	  }
     };
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = sentence.typeIndexID;
+  public final static int typeIndexID = gene.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("sentence");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("gene");
  
   /** @generated */
   final Feature casFeat_ID;
@@ -56,7 +55,7 @@ public class sentence_Type extends Annotation_Type {
    */ 
   public String getID(int addr) {
         if (featOkTst && casFeat_ID == null)
-      jcas.throwFeatMissing("ID", "sentence");
+      jcas.throwFeatMissing("ID", "gene");
     return ll_cas.ll_getStringValue(addr, casFeatCode_ID);
   }
   /** @generated
@@ -65,7 +64,7 @@ public class sentence_Type extends Annotation_Type {
    */    
   public void setID(int addr, String v) {
         if (featOkTst && casFeat_ID == null)
-      jcas.throwFeatMissing("ID", "sentence");
+      jcas.throwFeatMissing("ID", "gene");
     ll_cas.ll_setStringValue(addr, casFeatCode_ID, v);}
     
   
@@ -80,7 +79,7 @@ public class sentence_Type extends Annotation_Type {
    */ 
   public String getContent(int addr) {
         if (featOkTst && casFeat_Content == null)
-      jcas.throwFeatMissing("Content", "sentence");
+      jcas.throwFeatMissing("Content", "gene");
     return ll_cas.ll_getStringValue(addr, casFeatCode_Content);
   }
   /** @generated
@@ -89,7 +88,7 @@ public class sentence_Type extends Annotation_Type {
    */    
   public void setContent(int addr, String v) {
         if (featOkTst && casFeat_Content == null)
-      jcas.throwFeatMissing("Content", "sentence");
+      jcas.throwFeatMissing("Content", "gene");
     ll_cas.ll_setStringValue(addr, casFeatCode_Content, v);}
     
   
@@ -101,7 +100,7 @@ public class sentence_Type extends Annotation_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public sentence_Type(JCas jcas, Type casType) {
+  public gene_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

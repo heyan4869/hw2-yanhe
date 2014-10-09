@@ -1,99 +1,97 @@
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Iterator;
-import java.util.Set;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.cas.FSIterator;
 import com.aliasi.chunk.Chunk;
-import com.aliasi.chunk.Chunker;
-import com.aliasi.chunk.Chunking;
+import com.aliasi.chunk.ConfidenceChunker;
 import com.aliasi.util.AbstractExternalizable;
 
-/**
- * geneFinder implement one of the most important function which is find the
- * gene name in the content of the file via using the LingPipe name recognizer.
- * @author yanhe
- *
- */
-public class genefinder extends JCasAnnotator_ImplBase {
 
-  /**
-   * process use the LingPipe to identify the gene's information in the content
-   * of the file
-   */
+public class genefinder extends JCasAnnotator_ImplBase {
+	
+	private static final int MAX_N_BEST_CHUNKS = 5;
+
+	/**
+	 * process(Jcas aCas) does main work of the whole CPE, it uses LINGPIPE as a gene name source,
+	 * manipulate the split sentences from the cas, retrive the gene name and store them.
+	 */
   @Override
-  public void process(JCas aJCas) throws AnalysisEngineProcessException {
-    JCas jcas = aJCas;
-    int count = 0;
+  public void process(JCas aCas) throws AnalysisEngineProcessException {
+    JCas jcas = aCas;
+    //int count = 0;
     
     File modelFile = new File("src/main/resources/ne-en-bio-genetag.HmmChunker");
     System.out.println("Reading chunker from file = " + modelFile);
     FSIterator it = jcas.getAnnotationIndex(sentence.type).iterator();
-    Chunker chunker = null;
+
+    ConfidenceChunker chunker = null;
+	try {
+		chunker = (ConfidenceChunker) AbstractExternalizable.readObject(modelFile);
+	} catch (IOException e) {
+		e.printStackTrace();
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
    
-    try {
-      chunker = (Chunker) AbstractExternalizable.readObject(modelFile);
-      //System.out.println("chunker success");
-    } catch (IOException e) {
-      e.printStackTrace();
-    } catch (ClassNotFoundException e) {
-      e.printStackTrace();
-    }
+	DecimalFormat ft = new DecimalFormat("#0.0000");
     while(it.hasNext()){
-    	System.out.println("Iterator success");
+    	//System.out.println("iterator");
         sentence ann = (sentence)it.get();  
         String sen = ann.getContent();
         String id = ann.getID();
-        Chunking chunking = chunker.chunk(ann.getContent());     
+        char[] senten = sen.toCharArray();
+        Iterator<Chunk> itera = 
+        		chunker.nBestChunks(senten, 0, senten.length, MAX_N_BEST_CHUNKS);
+        //Chunking chunking = chunker.chunk(ann.getContent());     
         //System.out.println("Chunking=" + chunking);
-       
-        String gene;
-        Set<Chunk> set = chunking.chunkSet();
-        System.out.println(set);
-        Iterator itor = set.iterator();
-        while(itor.hasNext()){
-            Chunk c = (Chunk) itor.next();
-            gene = (sen.substring(c.start(), c.end()));
-            //System.out.println(c.start());
-            //System.out.println(c.end());
-            //System.out.println("Finding gene");
-            int begin = c.start() ;
-            int end = c.end();
-            begin = begin - countBlank(sen.substring(0,begin)) ;
-            end = begin + gene.length() - countBlank(gene) - 1;
-            genetag gt = new genetag(aJCas);
-            gt.setID(id);
-            gt.setContent(gene);
-            gt.setBegin(begin);
-            gt.setEnd(end);
-            gt.addToIndexes();
-           
-        }
+       String gene;
+ 
+        //Set<Chunk> set = chunking.chunkSet();
+        //Iterator iter = set.iterator();
+       for(int n = 0; itera.hasNext(); n++){
+            Chunk c = (Chunk) itera.next();
+            //System.out.println(c.score());
+            double conf = Math.pow(2.0, c.score());
+            //System.out.println(ft.format(conf));
+            
+            if(conf > 0.05){
+            	gene = (sen.substring(c.start(), c.end()));
+            	int begin = c.start() ;
+            	int end = c.end();
+            	begin = begin - countBlank(sen.substring(0,begin)) ;
+            	end = begin + gene.length() - countBlank(gene) - 1;
+
+            	genetag gt = new genetag(aCas);
+            	gt.setID(id);
+            	gt.setContent(gene);
+            	gt.setConfidence(conf);
+            	gt.setCasProcessorId("lingp");
+            	gt.setBegin(begin);
+            	gt.setEnd(end);
+            	gt.addToIndexes();
+            }
         //System.out.println(count++);
         it.next();
+       }
         
     }
-          
+      
   }
-    
-  /**
-   * countBlank counts the space in each sentence and use it to calculate
-   * the accurate start and end index of gene's name in the sentence.
-   * @param phrase is the sentence whose type is string that processed by
-   * geneFinder.
-   * @return
-   */
-  private int countBlank(String phrase){
-    int countBlank = 0;
-    for(int i=0; i<phrase.length(); i++) {
-        if(Character.isWhitespace(phrase.charAt(i))) {
-            countBlank++;
+     
+  private int countBlank(String s){
+    int count = 0;
+    for(int i = 0; i < s.length(); i++) {
+        if(Character.isWhitespace(s.charAt(i))) {
+            count++;
         }
      }
-    return countBlank;
+    return count;
   }
   
+ 
 }
