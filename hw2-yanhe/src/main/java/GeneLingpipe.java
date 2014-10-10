@@ -7,9 +7,13 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.cas.FSIterator;
+
 import com.aliasi.chunk.Chunk;
 import com.aliasi.chunk.ConfidenceChunker;
 import com.aliasi.util.AbstractExternalizable;
+
+import edu.cmu.deiis.types.Genetag;
+import edu.cmu.deiis.types.Sentence;
 
 
 public class GeneLingpipe extends JCasAnnotator_ImplBase {

@@ -15,6 +15,8 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceProcessException;
 import org.xml.sax.SAXException;
 
+import edu.cmu.deiis.types.Gene;
+
 
 public class Consumer extends CasConsumer_ImplBase {
 	private BufferedWriter buf;

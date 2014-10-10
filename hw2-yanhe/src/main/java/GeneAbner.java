@@ -3,6 +3,8 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
 
+import edu.cmu.deiis.types.Genetag;
+import edu.cmu.deiis.types.Sentence;
 import abner.Tagger;
 
 

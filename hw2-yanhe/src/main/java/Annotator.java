@@ -2,6 +2,8 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
 
+import edu.cmu.deiis.types.Sentence;
+
 /**
  * Annotator process the content of the file and split the content by each line
  * and use the substring function to cut each line into two parts, the first part

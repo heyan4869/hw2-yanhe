@@ -1,24 +1,24 @@
 
 
-/* First created by JCasGen Fri Oct 10 16:02:24 EDT 2014 */
+/* First created by JCasGen Fri Oct 10 16:16:47 EDT 2014 */
+package edu.cmu.deiis.types;
 
 import org.apache.uima.jcas.JCas; 
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 
-import edu.cmu.deiis.types.Annotation;
 
 
 /** 
- * Updated by JCasGen Fri Oct 10 16:02:24 EDT 2014
+ * Updated by JCasGen Fri Oct 10 16:16:47 EDT 2014
  * XML source: /Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/deiis_types.xml
  * @generated */
-public class Sentence extends Annotation {
+public class Gene extends Annotation {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(Sentence.class);
+  public final static int typeIndexID = JCasRegistry.register(Gene.class);
   /** @generated
    * @ordered 
    */
@@ -32,14 +32,14 @@ public class Sentence extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected Sentence() {/* intentionally empty block */}
+  protected Gene() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public Sentence(int addr, TOP_Type type) {
+  public Gene(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -47,7 +47,7 @@ public class Sentence extends Annotation {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public Sentence(JCas jcas) {
+  public Gene(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -57,7 +57,7 @@ public class Sentence extends Annotation {
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
   */  
-  public Sentence(JCas jcas, int begin, int end) {
+  public Gene(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -83,18 +83,18 @@ public class Sentence extends Annotation {
    * @return value of the feature 
    */
   public String getID() {
-    if (Sentence_Type.featOkTst && ((Sentence_Type)jcasType).casFeat_ID == null)
-      jcasType.jcas.throwFeatMissing("ID", "Sentence");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((Sentence_Type)jcasType).casFeatCode_ID);}
+    if (Gene_Type.featOkTst && ((Gene_Type)jcasType).casFeat_ID == null)
+      jcasType.jcas.throwFeatMissing("ID", "edu.cmu.deiis.types.Gene");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((Gene_Type)jcasType).casFeatCode_ID);}
     
   /** setter for ID - sets  
    * @generated
    * @param v value to set into the feature 
    */
   public void setID(String v) {
-    if (Sentence_Type.featOkTst && ((Sentence_Type)jcasType).casFeat_ID == null)
-      jcasType.jcas.throwFeatMissing("ID", "Sentence");
-    jcasType.ll_cas.ll_setStringValue(addr, ((Sentence_Type)jcasType).casFeatCode_ID, v);}    
+    if (Gene_Type.featOkTst && ((Gene_Type)jcasType).casFeat_ID == null)
+      jcasType.jcas.throwFeatMissing("ID", "edu.cmu.deiis.types.Gene");
+    jcasType.ll_cas.ll_setStringValue(addr, ((Gene_Type)jcasType).casFeatCode_ID, v);}    
    
     
   //*--------------*
@@ -105,18 +105,18 @@ public class Sentence extends Annotation {
    * @return value of the feature 
    */
   public String getContent() {
-    if (Sentence_Type.featOkTst && ((Sentence_Type)jcasType).casFeat_Content == null)
-      jcasType.jcas.throwFeatMissing("Content", "Sentence");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((Sentence_Type)jcasType).casFeatCode_Content);}
+    if (Gene_Type.featOkTst && ((Gene_Type)jcasType).casFeat_Content == null)
+      jcasType.jcas.throwFeatMissing("Content", "edu.cmu.deiis.types.Gene");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((Gene_Type)jcasType).casFeatCode_Content);}
     
   /** setter for Content - sets  
    * @generated
    * @param v value to set into the feature 
    */
   public void setContent(String v) {
-    if (Sentence_Type.featOkTst && ((Sentence_Type)jcasType).casFeat_Content == null)
-      jcasType.jcas.throwFeatMissing("Content", "Sentence");
-    jcasType.ll_cas.ll_setStringValue(addr, ((Sentence_Type)jcasType).casFeatCode_Content, v);}    
+    if (Gene_Type.featOkTst && ((Gene_Type)jcasType).casFeat_Content == null)
+      jcasType.jcas.throwFeatMissing("Content", "edu.cmu.deiis.types.Gene");
+    jcasType.ll_cas.ll_setStringValue(addr, ((Gene_Type)jcasType).casFeatCode_Content, v);}    
   }
 
     

@@ -1,5 +1,6 @@
 
-/* First created by JCasGen Fri Oct 10 16:02:24 EDT 2014 */
+/* First created by JCasGen Fri Oct 10 16:16:47 EDT 2014 */
+package edu.cmu.deiis.types;
 
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
@@ -10,10 +11,9 @@ import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
-import edu.cmu.deiis.types.Annotation_Type;
 
 /** 
- * Updated by JCasGen Fri Oct 10 16:02:24 EDT 2014
+ * Updated by JCasGen Fri Oct 10 16:16:47 EDT 2014
  * @generated */
 public class Gene_Type extends Annotation_Type {
   /** @generated 
@@ -43,7 +43,7 @@ public class Gene_Type extends Annotation_Type {
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("Gene");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.cmu.deiis.types.Gene");
  
   /** @generated */
   final Feature casFeat_ID;
@@ -55,7 +55,7 @@ public class Gene_Type extends Annotation_Type {
    */ 
   public String getID(int addr) {
         if (featOkTst && casFeat_ID == null)
-      jcas.throwFeatMissing("ID", "Gene");
+      jcas.throwFeatMissing("ID", "edu.cmu.deiis.types.Gene");
     return ll_cas.ll_getStringValue(addr, casFeatCode_ID);
   }
   /** @generated
@@ -64,7 +64,7 @@ public class Gene_Type extends Annotation_Type {
    */    
   public void setID(int addr, String v) {
         if (featOkTst && casFeat_ID == null)
-      jcas.throwFeatMissing("ID", "Gene");
+      jcas.throwFeatMissing("ID", "edu.cmu.deiis.types.Gene");
     ll_cas.ll_setStringValue(addr, casFeatCode_ID, v);}
     
   
@@ -79,7 +79,7 @@ public class Gene_Type extends Annotation_Type {
    */ 
   public String getContent(int addr) {
         if (featOkTst && casFeat_Content == null)
-      jcas.throwFeatMissing("Content", "Gene");
+      jcas.throwFeatMissing("Content", "edu.cmu.deiis.types.Gene");
     return ll_cas.ll_getStringValue(addr, casFeatCode_Content);
   }
   /** @generated
@@ -88,7 +88,7 @@ public class Gene_Type extends Annotation_Type {
    */    
   public void setContent(int addr, String v) {
         if (featOkTst && casFeat_Content == null)
-      jcas.throwFeatMissing("Content", "Gene");
+      jcas.throwFeatMissing("Content", "edu.cmu.deiis.types.Gene");
     ll_cas.ll_setStringValue(addr, casFeatCode_Content, v);}
     
   
