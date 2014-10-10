@@ -28,7 +28,7 @@ public class Consumer extends CasConsumer_ImplBase {
   private BufferedWriter buf;
   public static final String PARAM_OUTPUTDIR = "OutputFile";
   /**
-   * process() write the gene ID,name,index into the disk file, which are got from geneAnalysis. 
+   * process() write the gene ID,name,index into the disk file, which are got from ChooseAnnotator. 
    */
   @Override
   public void processCas(CAS aCAS) throws ResourceProcessException {
