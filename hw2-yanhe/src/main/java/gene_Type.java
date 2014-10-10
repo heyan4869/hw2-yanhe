@@ -12,16 +12,10 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 import edu.cmu.deiis.types.Annotation_Type;
 
-/** 
- * Updated by JCasGen Thu Oct 09 17:10:57 EDT 2014
- * @generated */
 public class gene_Type extends Annotation_Type {
-  /** @generated 
-   * @return the generator for this type
-   */
+
   @Override
   protected FSGenerator getFSGenerator() {return fsGenerator;}
-  /** @generated */
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
@@ -37,31 +31,21 @@ public class gene_Type extends Annotation_Type {
         } else return new gene(addr, gene_Type.this);
   	  }
     };
-  /** @generated */
   @SuppressWarnings ("hiding")
   public final static int typeIndexID = gene.typeIndexID;
-  /** @generated 
-     @modifiable */
+
   @SuppressWarnings ("hiding")
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("gene");
  
-  /** @generated */
   final Feature casFeat_ID;
-  /** @generated */
   final int     casFeatCode_ID;
-  /** @generated
-   * @param addr low level Feature Structure reference
-   * @return the feature value 
-   */ 
+
   public String getID(int addr) {
         if (featOkTst && casFeat_ID == null)
       jcas.throwFeatMissing("ID", "gene");
     return ll_cas.ll_getStringValue(addr, casFeatCode_ID);
   }
-  /** @generated
-   * @param addr low level Feature Structure reference
-   * @param v value to set 
-   */    
+  
   public void setID(int addr, String v) {
         if (featOkTst && casFeat_ID == null)
       jcas.throwFeatMissing("ID", "gene");
@@ -69,23 +53,15 @@ public class gene_Type extends Annotation_Type {
     
   
  
-  /** @generated */
   final Feature casFeat_Content;
-  /** @generated */
   final int     casFeatCode_Content;
-  /** @generated
-   * @param addr low level Feature Structure reference
-   * @return the feature value 
-   */ 
+
   public String getContent(int addr) {
         if (featOkTst && casFeat_Content == null)
       jcas.throwFeatMissing("Content", "gene");
     return ll_cas.ll_getStringValue(addr, casFeatCode_Content);
   }
-  /** @generated
-   * @param addr low level Feature Structure reference
-   * @param v value to set 
-   */    
+ 
   public void setContent(int addr, String v) {
         if (featOkTst && casFeat_Content == null)
       jcas.throwFeatMissing("Content", "gene");
@@ -93,13 +69,6 @@ public class gene_Type extends Annotation_Type {
     
   
 
-
-
-  /** initialize variables to correspond with Cas Type and Features
-	 * @generated
-	 * @param jcas JCas
-	 * @param casType Type 
-	 */
   public gene_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());

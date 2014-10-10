@@ -12,40 +12,40 @@ import org.apache.uima.jcas.cas.TOP_Type;
 /** 
  * Updated by JCasGen Thu Oct 09 17:10:57 EDT 2014
  * XML source: /Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/deiis_types.xml
- * @generated */
+ *  */
 public class Annotation extends org.apache.uima.jcas.tcas.Annotation {
-  /** @generated
-   * @ordered 
+  /** 
+   *  
    */
   @SuppressWarnings ("hiding")
   public final static int typeIndexID = JCasRegistry.register(Annotation.class);
-  /** @generated
-   * @ordered 
+  /** 
+   *  
    */
   @SuppressWarnings ("hiding")
   public final static int type = typeIndexID;
-  /** @generated  */
+  /**   */
   @Override
   public              int getTypeIndexID() {return typeIndexID;}
  
   /** Never called.  Disable default constructor
-   * @generated */
+   *  */
   protected Annotation() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
-   * @generated */
+   *  */
   public Annotation(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
   
-  /** @generated */
+  /**  */
   public Annotation(JCas jcas) {
     super(jcas);
     readObject();   
   } 
 
-  /** @generated */  
+  /**  */  
   public Annotation(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
@@ -58,7 +58,7 @@ public class Annotation extends org.apache.uima.jcas.tcas.Annotation {
     * Write your own initialization here
     * <!-- end-user-doc -->
   *
-   * @generated modifiable 
+   *  modifiable 
    */
   private void readObject() {/*default - does nothing empty block */}
      
@@ -68,7 +68,7 @@ public class Annotation extends org.apache.uima.jcas.tcas.Annotation {
   //* Feature: casProcessorId
 
   /** getter for casProcessorId - gets The unique identifier of the CAS processor that added this annotation to the CAS
-   * @generated
+   * 
    * @return value of the feature 
    */
   public String getCasProcessorId() {
@@ -77,7 +77,7 @@ public class Annotation extends org.apache.uima.jcas.tcas.Annotation {
     return jcasType.ll_cas.ll_getStringValue(addr, ((Annotation_Type)jcasType).casFeatCode_casProcessorId);}
     
   /** setter for casProcessorId - sets The unique identifier of the CAS processor that added this annotation to the CAS 
-   * @generated
+   * 
    * @param v value to set into the feature 
    */
   public void setCasProcessorId(String v) {
@@ -90,7 +90,7 @@ public class Annotation extends org.apache.uima.jcas.tcas.Annotation {
   //* Feature: confidence
 
   /** getter for confidence - gets The confidence level assigned to the Annotation by the CAS processor that created it.
-   * @generated
+   * 
    * @return value of the feature 
    */
   public double getConfidence() {
@@ -99,7 +99,7 @@ public class Annotation extends org.apache.uima.jcas.tcas.Annotation {
     return jcasType.ll_cas.ll_getDoubleValue(addr, ((Annotation_Type)jcasType).casFeatCode_confidence);}
     
   /** setter for confidence - sets The confidence level assigned to the Annotation by the CAS processor that created it. 
-   * @generated
+   * 
    * @param v value to set into the feature 
    */
   public void setConfidence(double v) {

@@ -12,40 +12,40 @@ import org.apache.uima.jcas.cas.TOP_Type;
 /** 
  * Updated by JCasGen Thu Oct 09 17:10:57 EDT 2014
  * XML source: /Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/deiis_types.xml
- * @generated */
+ *  */
 public class AnswerScore extends Annotation {
-  /** @generated
+  /** 
    * @ordered 
    */
   @SuppressWarnings ("hiding")
   public final static int typeIndexID = JCasRegistry.register(AnswerScore.class);
-  /** @generated
+  /** 
    * @ordered 
    */
   @SuppressWarnings ("hiding")
   public final static int type = typeIndexID;
-  /** @generated  */
+  /**   */
   @Override
   public              int getTypeIndexID() {return typeIndexID;}
  
   /** Never called.  Disable default constructor
-   * @generated */
+   *  */
   protected AnswerScore() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
-   * @generated */
+   *  */
   public AnswerScore(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
   
-  /** @generated */
+  /**  */
   public AnswerScore(JCas jcas) {
     super(jcas);
     readObject();   
   } 
 
-  /** @generated */  
+  /**  */  
   public AnswerScore(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
@@ -58,7 +58,7 @@ public class AnswerScore extends Annotation {
     * Write your own initialization here
     * <!-- end-user-doc -->
   *
-   * @generated modifiable 
+   *  modifiable 
    */
   private void readObject() {/*default - does nothing empty block */}
      
@@ -68,7 +68,7 @@ public class AnswerScore extends Annotation {
   //* Feature: score
 
   /** getter for score - gets 
-   * @generated
+   * 
    * @return value of the feature 
    */
   public double getScore() {
@@ -77,7 +77,7 @@ public class AnswerScore extends Annotation {
     return jcasType.ll_cas.ll_getDoubleValue(addr, ((AnswerScore_Type)jcasType).casFeatCode_score);}
     
   /** setter for score - sets  
-   * @generated
+   * 
    * @param v value to set into the feature 
    */
   public void setScore(double v) {
@@ -90,7 +90,7 @@ public class AnswerScore extends Annotation {
   //* Feature: answer
 
   /** getter for answer - gets 
-   * @generated
+   * 
    * @return value of the feature 
    */
   public Answer getAnswer() {
@@ -99,7 +99,7 @@ public class AnswerScore extends Annotation {
     return (Answer)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((AnswerScore_Type)jcasType).casFeatCode_answer)));}
     
   /** setter for answer - sets  
-   * @generated
+   * 
    * @param v value to set into the feature 
    */
   public void setAnswer(Answer v) {

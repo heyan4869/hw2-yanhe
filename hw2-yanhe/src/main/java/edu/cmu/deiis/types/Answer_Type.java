@@ -14,12 +14,12 @@ import org.apache.uima.cas.Feature;
 
 /** 
  * Updated by JCasGen Thu Oct 09 17:10:57 EDT 2014
- * @generated */
+ *  */
 public class Answer_Type extends Annotation_Type {
-  /** @generated */
+  /**  */
   @Override
   protected FSGenerator getFSGenerator() {return fsGenerator;}
-  /** @generated */
+  /**  */
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
@@ -35,25 +35,25 @@ public class Answer_Type extends Annotation_Type {
         } else return new Answer(addr, Answer_Type.this);
   	  }
     };
-  /** @generated */
+  /**  */
   @SuppressWarnings ("hiding")
   public final static int typeIndexID = Answer.typeIndexID;
-  /** @generated 
+  /**  
      @modifiable */
   @SuppressWarnings ("hiding")
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.cmu.deiis.types.Answer");
  
-  /** @generated */
+  /**  */
   final Feature casFeat_isCorrect;
-  /** @generated */
+  /**  */
   final int     casFeatCode_isCorrect;
-  /** @generated */ 
+  /**  */ 
   public boolean getIsCorrect(int addr) {
         if (featOkTst && casFeat_isCorrect == null)
       jcas.throwFeatMissing("isCorrect", "edu.cmu.deiis.types.Answer");
     return ll_cas.ll_getBooleanValue(addr, casFeatCode_isCorrect);
   }
-  /** @generated */    
+  /**  */    
   public void setIsCorrect(int addr, boolean v) {
         if (featOkTst && casFeat_isCorrect == null)
       jcas.throwFeatMissing("isCorrect", "edu.cmu.deiis.types.Answer");
@@ -64,7 +64,7 @@ public class Answer_Type extends Annotation_Type {
 
 
   /** initialize variables to correspond with Cas Type and Features
-	* @generated */
+	*  */
   public Answer_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());

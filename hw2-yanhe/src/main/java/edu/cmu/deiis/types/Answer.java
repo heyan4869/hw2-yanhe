@@ -12,40 +12,40 @@ import org.apache.uima.jcas.cas.TOP_Type;
 /** 
  * Updated by JCasGen Thu Oct 09 17:10:57 EDT 2014
  * XML source: /Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/deiis_types.xml
- * @generated */
+ *  */
 public class Answer extends Annotation {
-  /** @generated
-   * @ordered 
+  /** 
+   *  
    */
   @SuppressWarnings ("hiding")
   public final static int typeIndexID = JCasRegistry.register(Answer.class);
-  /** @generated
-   * @ordered 
+  /** 
+   *  
    */
   @SuppressWarnings ("hiding")
   public final static int type = typeIndexID;
-  /** @generated  */
+  /**   */
   @Override
   public              int getTypeIndexID() {return typeIndexID;}
  
   /** Never called.  Disable default constructor
-   * @generated */
+   *  */
   protected Answer() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
-   * @generated */
+   *  */
   public Answer(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
   
-  /** @generated */
+  /**  */
   public Answer(JCas jcas) {
     super(jcas);
     readObject();   
   } 
 
-  /** @generated */  
+  /**  */  
   public Answer(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
@@ -58,7 +58,7 @@ public class Answer extends Annotation {
     * Write your own initialization here
     * <!-- end-user-doc -->
   *
-   * @generated modifiable 
+   *  modifiable 
    */
   private void readObject() {/*default - does nothing empty block */}
      
@@ -68,7 +68,7 @@ public class Answer extends Annotation {
   //* Feature: isCorrect
 
   /** getter for isCorrect - gets 
-   * @generated
+   * 
    * @return value of the feature 
    */
   public boolean getIsCorrect() {
@@ -77,7 +77,7 @@ public class Answer extends Annotation {
     return jcasType.ll_cas.ll_getBooleanValue(addr, ((Answer_Type)jcasType).casFeatCode_isCorrect);}
     
   /** setter for isCorrect - sets  
-   * @generated
+   * 
    * @param v value to set into the feature 
    */
   public void setIsCorrect(boolean v) {
