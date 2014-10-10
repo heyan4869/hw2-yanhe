@@ -79,7 +79,7 @@ public class Answer extends Annotation {
   //* Feature: isCorrect
 
   /** getter for isCorrect - gets 
-   * 
+   * @generated
    * @return value of the feature 
    */
   public boolean getIsCorrect() {
@@ -88,7 +88,7 @@ public class Answer extends Annotation {
     return jcasType.ll_cas.ll_getBooleanValue(addr, ((Answer_Type)jcasType).casFeatCode_isCorrect);}
     
   /** setter for isCorrect - sets  
-   * 
+   * @generated
    * @param v value to set into the feature 
    */
   public void setIsCorrect(boolean v) {

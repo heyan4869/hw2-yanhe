@@ -79,7 +79,7 @@ public class AnswerScore extends Annotation {
   //* Feature: score
 
   /** getter for score - gets 
-   * 
+   * @generated
    * @return value of the feature 
    */
   public double getScore() {
@@ -88,7 +88,7 @@ public class AnswerScore extends Annotation {
     return jcasType.ll_cas.ll_getDoubleValue(addr, ((AnswerScore_Type)jcasType).casFeatCode_score);}
     
   /** setter for score - sets  
-   * 
+   * @generated
    * @param v value to set into the feature 
    */
   public void setScore(double v) {
@@ -101,7 +101,7 @@ public class AnswerScore extends Annotation {
   //* Feature: answer
 
   /** getter for answer - gets 
-   * 
+   * @generated
    * @return value of the feature 
    */
   public Answer getAnswer() {
@@ -110,7 +110,7 @@ public class AnswerScore extends Annotation {
     return (Answer)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((AnswerScore_Type)jcasType).casFeatCode_answer)));}
     
   /** setter for answer - sets  
-   * 
+   * @generated
    * @param v value to set into the feature 
    */
   public void setAnswer(Answer v) {

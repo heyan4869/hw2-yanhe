@@ -6,19 +6,19 @@ import org.apache.uima.jcas.JCas;
 import abner.Tagger;
 
 
-public class geneabner extends JCasAnnotator_ImplBase {
+public class GeneAbner extends JCasAnnotator_ImplBase {
 
 	@Override
 	public void process(JCas aCas) throws AnalysisEngineProcessException {
 		// TODO Auto-generated method stub
 		JCas jcas = aCas;
-		FSIterator it = jcas.getAnnotationIndex(sentence.type).iterator();
+		FSIterator it = jcas.getAnnotationIndex(Sentence.type).iterator();
 		Tagger t = new Tagger();
 		int begin;
 		int end;
 		
 		while(it.hasNext()){
-	        sentence ann = (sentence)it.get();  
+	        Sentence ann = (Sentence)it.get();  
 	        String sen = ann.getContent();
 	        String id = ann.getID();
 			
@@ -43,7 +43,7 @@ public class geneabner extends JCasAnnotator_ImplBase {
 	    	    	//System.out.println(begin);
 	    	    	//System.out.println(end);
 	    	    
-	    	    	genetag gt = new genetag(aCas);
+	    	    	Genetag gt = new Genetag(aCas);
 	    	    	gt.setID(id);
 	    	    	gt.setContent(gene);	    	    	
 	    	    	gt.setBegin(begin);

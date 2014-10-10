@@ -12,7 +12,7 @@ import com.aliasi.chunk.ConfidenceChunker;
 import com.aliasi.util.AbstractExternalizable;
 
 
-public class genefinder extends JCasAnnotator_ImplBase {
+public class GeneLingpipe extends JCasAnnotator_ImplBase {
 	//this const should be chosen really seriously
 	//N-gram annotation here
 	private static final int MAX_N_BEST_CHUNKS = 5;
@@ -29,7 +29,7 @@ public class genefinder extends JCasAnnotator_ImplBase {
     String pathway = "/ne-en-bio-genetag.HmmChunker";
     //File modelFile = new File("src/main/resources/ne-en-bio-genetag.HmmChunker");
     System.out.println("Reading chunker from file = " + pathway);
-    FSIterator it = jcas.getAnnotationIndex(sentence.type).iterator();
+    FSIterator it = jcas.getAnnotationIndex(Sentence.type).iterator();
 
     ConfidenceChunker chunker = null;
 	try {
@@ -46,7 +46,7 @@ public class genefinder extends JCasAnnotator_ImplBase {
 	DecimalFormat ft = new DecimalFormat("#0.0000");
     while(it.hasNext()){
     	//System.out.println("iterator");
-        sentence ann = (sentence)it.get();  
+        Sentence ann = (Sentence)it.get();  
         String sen = ann.getContent();
         String id = ann.getID();
         char[] senten = sen.toCharArray();
@@ -72,7 +72,7 @@ public class genefinder extends JCasAnnotator_ImplBase {
             	begin = begin - countBlank(sen.substring(0,begin)) ;
             	end = begin + gene.length() - countBlank(gene) - 1;
 
-            	genetag gt = new genetag(aCas);
+            	Genetag gt = new Genetag(aCas);
             	gt.setID(id);
             	gt.setContent(gene);
             	gt.setConfidence(conf);

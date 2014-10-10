@@ -18,7 +18,7 @@ import org.apache.uima.jcas.JCas;
  * @author yanhe
  * 
  */
-public class reader extends CollectionReader_ImplBase {
+public class Reader extends CollectionReader_ImplBase {
   private File mFile;
   private String mEncoding;
   public static final String PARAM_FILE= "InputFile";

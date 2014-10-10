@@ -10,7 +10,7 @@ import org.apache.uima.jcas.JCas;
  * @author yanhe
  * 
  */
-public class annotator extends JCasAnnotator_ImplBase {
+public class Annotator extends JCasAnnotator_ImplBase {
 
   @Override
   public void process(JCas jcas) throws AnalysisEngineProcessException {
@@ -23,7 +23,7 @@ public class annotator extends JCasAnnotator_ImplBase {
       String sentenceID = text[i].substring(0, firstSpace);
       String sentenceContent = text[i].substring(firstSpace);
       // System.out.println(text[i]);
-      sentence annotation = new sentence(jcas);
+      Sentence annotation = new Sentence(jcas);
       annotation.setID(sentenceID);
       annotation.setContent(sentenceContent);
       annotation.addToIndexes();

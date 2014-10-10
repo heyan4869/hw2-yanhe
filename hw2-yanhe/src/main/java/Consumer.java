@@ -16,7 +16,7 @@ import org.apache.uima.resource.ResourceProcessException;
 import org.xml.sax.SAXException;
 
 
-public class consumer extends CasConsumer_ImplBase {
+public class Consumer extends CasConsumer_ImplBase {
 	private BufferedWriter buf;
 	public static final String PARAM_OUTPUTDIR = "OutputFile";
 	/**
@@ -39,7 +39,7 @@ public class consumer extends CasConsumer_ImplBase {
 	      throw new ResourceProcessException(e);
 	    }
 	    
-	    FSIterator it = jcas.getAnnotationIndex(gene.type).iterator();
+	    FSIterator it = jcas.getAnnotationIndex(Gene.type).iterator();
 	    String geneId = "";
 	    String geneContent = "";
 	    // String processor = "";
@@ -47,7 +47,7 @@ public class consumer extends CasConsumer_ImplBase {
 	    //double conf = 0.0; 
 	    
 	    while(it.hasNext()){
-	    	gene annotation = (gene) it.next();
+	    	Gene annotation = (Gene) it.next();
 			geneId = annotation.getID();
 			geneContent = annotation.getContent();			
 			start = annotation.getBegin();

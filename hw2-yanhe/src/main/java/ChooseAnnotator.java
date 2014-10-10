@@ -9,14 +9,14 @@ import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
 
 
-public class chooseannotator extends JCasAnnotator_ImplBase {
+public class ChooseAnnotator extends JCasAnnotator_ImplBase {
 
 	@Override
 	public void process(JCas aCas) throws AnalysisEngineProcessException {
 		// TODO Auto-generated method stub
 		JCas jcas = aCas;
-		FSIterator it = jcas.getAnnotationIndex(genetag.type).iterator();
-		genetag gene;
+		FSIterator it = jcas.getAnnotationIndex(Genetag.type).iterator();
+		Genetag gene;
 		String ID;
 		String Content;
 		int begin, end = -1;
@@ -25,7 +25,7 @@ public class chooseannotator extends JCasAnnotator_ImplBase {
 		HashMap<String, Double> lingps = new HashMap<String, Double>();
 		
 		while(it.hasNext()){
-			gene = (genetag)it.get();
+			gene = (Genetag)it.get();
 			String processor = gene.getCasProcessorId();
 			
 			if(processor.equals("abner")){
@@ -54,7 +54,7 @@ public class chooseannotator extends JCasAnnotator_ImplBase {
 			String Key = (String) entry.getKey(); 
 			if(Key.charAt(14) == ' '){
 				if(val >= 0.7){
-					gene g = new gene(jcas);
+					Gene g = new Gene(jcas);
 					//System.out.println(Key);
 					g.setID(Key.substring(0, 14));
             		g.setBegin(Integer.parseInt(Key.substring(15, 18)));
@@ -64,7 +64,7 @@ public class chooseannotator extends JCasAnnotator_ImplBase {
 				}
 				if(val < 0.7){
 					if(abners.contains(Key)){
-						gene g = new gene(jcas);
+						Gene g = new Gene(jcas);
 						g.setID(Key.substring(0, 14));
 						//System.out.println(Key.substring(0, 14));
 						g.setBegin(Integer.parseInt(Key.substring(15, 18)));
