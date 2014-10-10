@@ -81,8 +81,8 @@ public class genetag extends Annotation {
   //* Feature: ID
 
   /** getter for ID - gets 
-   * 
-   *  value of the feature 
+   * @generated
+   * @return value of the feature 
    */
   public String getID() {
     if (genetag_Type.featOkTst && ((genetag_Type)jcasType).casFeat_ID == null)
@@ -90,8 +90,8 @@ public class genetag extends Annotation {
     return jcasType.ll_cas.ll_getStringValue(addr, ((genetag_Type)jcasType).casFeatCode_ID);}
     
   /** setter for ID - sets  
-   * 
-   *  v value to set into the feature 
+   * @generated
+   * @param v value to set into the feature 
    */
   public void setID(String v) {
     if (genetag_Type.featOkTst && ((genetag_Type)jcasType).casFeat_ID == null)
@@ -103,8 +103,8 @@ public class genetag extends Annotation {
   //* Feature: Content
 
   /** getter for Content - gets 
-   * 
-   *  value of the feature 
+   * @generated
+   * @return value of the feature 
    */
   public String getContent() {
     if (genetag_Type.featOkTst && ((genetag_Type)jcasType).casFeat_Content == null)
@@ -112,8 +112,8 @@ public class genetag extends Annotation {
     return jcasType.ll_cas.ll_getStringValue(addr, ((genetag_Type)jcasType).casFeatCode_Content);}
     
   /** setter for Content - sets  
-   * 
-   *  v value to set into the feature 
+   * @generated
+   * @param v value to set into the feature 
    */
   public void setContent(String v) {
     if (genetag_Type.featOkTst && ((genetag_Type)jcasType).casFeat_Content == null)

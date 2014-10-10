@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Wed Sep 11 13:44:28 EDT 2013 */
+/* First created by JCasGen Fri Oct 10 15:25:23 EDT 2014 */
 package edu.cmu.deiis.types;
 
 import org.apache.uima.jcas.JCas;
@@ -13,10 +13,12 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** 
- * Updated by JCasGen Thu Oct 09 17:10:57 EDT 2014
+ * Updated by JCasGen Fri Oct 10 15:25:23 EDT 2014
  *  */
 public class Answer_Type extends Annotation_Type {
-  /**  */
+  /**  
+   * @return the generator for this type
+   */
   @Override
   protected FSGenerator getFSGenerator() {return fsGenerator;}
   /**  */
@@ -47,13 +49,19 @@ public class Answer_Type extends Annotation_Type {
   final Feature casFeat_isCorrect;
   /**  */
   final int     casFeatCode_isCorrect;
-  /**  */ 
+  /** 
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
   public boolean getIsCorrect(int addr) {
         if (featOkTst && casFeat_isCorrect == null)
       jcas.throwFeatMissing("isCorrect", "edu.cmu.deiis.types.Answer");
     return ll_cas.ll_getBooleanValue(addr, casFeatCode_isCorrect);
   }
-  /**  */    
+  /** 
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
   public void setIsCorrect(int addr, boolean v) {
         if (featOkTst && casFeat_isCorrect == null)
       jcas.throwFeatMissing("isCorrect", "edu.cmu.deiis.types.Answer");
@@ -64,7 +72,10 @@ public class Answer_Type extends Annotation_Type {
 
 
   /** initialize variables to correspond with Cas Type and Features
-	*  */
+	 * 
+	 * @param jcas JCas
+	 * @param casType Type 
+	 */
   public Answer_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());

@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Wed Sep 11 13:44:28 EDT 2013 */
+/* First created by JCasGen Fri Oct 10 15:25:23 EDT 2014 */
 package edu.cmu.deiis.types;
 
 import org.apache.uima.jcas.JCas; 
@@ -10,21 +10,23 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 /** 
- * Updated by JCasGen Thu Oct 09 17:10:57 EDT 2014
+ * Updated by JCasGen Fri Oct 10 15:25:23 EDT 2014
  * XML source: /Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/deiis_types.xml
- *  */
+ * @generated */
 public class Annotation extends org.apache.uima.jcas.tcas.Annotation {
   /** 
-   *  
+   * @ordered 
    */
   @SuppressWarnings ("hiding")
   public final static int typeIndexID = JCasRegistry.register(Annotation.class);
   /** 
-   *  
+   * @ordered 
    */
   @SuppressWarnings ("hiding")
   public final static int type = typeIndexID;
-  /**   */
+  /** 
+   * @return index of the type  
+   */
   @Override
   public              int getTypeIndexID() {return typeIndexID;}
  
@@ -33,19 +35,28 @@ public class Annotation extends org.apache.uima.jcas.tcas.Annotation {
   protected Annotation() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
-   *  */
+   * 
+   * @param addr low level Feature Structure reference
+   * @param type the type of this Feature Structure 
+   */
   public Annotation(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
   
-  /**  */
+  /** 
+   * @param jcas JCas to which this Feature Structure belongs 
+   */
   public Annotation(JCas jcas) {
     super(jcas);
     readObject();   
   } 
 
-  /**  */  
+  /** 
+   * @param jcas JCas to which this Feature Structure belongs
+   * @param begin offset to the begin spot in the SofA
+   * @param end offset to the end spot in the SofA 
+  */  
   public Annotation(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
@@ -55,9 +66,9 @@ public class Annotation extends org.apache.uima.jcas.tcas.Annotation {
 
   /** 
    * <!-- begin-user-doc -->
-    * Write your own initialization here
-    * <!-- end-user-doc -->
-  *
+   * Write your own initialization here
+   * <!-- end-user-doc -->
+   *
    *  modifiable 
    */
   private void readObject() {/*default - does nothing empty block */}

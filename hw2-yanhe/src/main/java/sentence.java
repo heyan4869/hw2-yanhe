@@ -79,7 +79,7 @@ public class sentence extends Annotation {
   //* Feature: ID
 
   /** getter for ID - gets 
-   * 
+   * @generated
    * @return value of the feature 
    */
   public String getID() {
@@ -88,7 +88,7 @@ public class sentence extends Annotation {
     return jcasType.ll_cas.ll_getStringValue(addr, ((sentence_Type)jcasType).casFeatCode_ID);}
     
   /** setter for ID - sets  
-   * 
+   * @generated
    * @param v value to set into the feature 
    */
   public void setID(String v) {
@@ -101,7 +101,7 @@ public class sentence extends Annotation {
   //* Feature: Content
 
   /** getter for Content - gets 
-   * 
+   * @generated
    * @return value of the feature 
    */
   public String getContent() {
@@ -110,7 +110,7 @@ public class sentence extends Annotation {
     return jcasType.ll_cas.ll_getStringValue(addr, ((sentence_Type)jcasType).casFeatCode_Content);}
     
   /** setter for Content - sets  
-   * 
+   * @generated
    * @param v value to set into the feature 
    */
   public void setContent(String v) {
