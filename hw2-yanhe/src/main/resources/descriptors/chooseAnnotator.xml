@@ -11,7 +11,7 @@
     <configurationParameterSettings/>
     <typeSystemDescription>
       <imports>
-        <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/deiis_types.xml"/>
+        <import location="deiis_types.xml"/>
       </imports>
     </typeSystemDescription>
     <typePriorities/>

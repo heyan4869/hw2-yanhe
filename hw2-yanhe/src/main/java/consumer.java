@@ -69,53 +69,56 @@ public class consumer extends CasConsumer_ImplBase {
 			}
 			
 	    }
-	    System.out.println("System performance");
-	    BufferedReader my = null,sample=null;
-	    int myall = 0;
-	    int all = 0;
-	    int hit = 0;
-	    try {
-			sample = new BufferedReader(new FileReader("src/main/resources/inputData/sample.out"));
-			my = new BufferedReader(new FileReader("src/main/resources/outputfile.out"));
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    
-	    HashSet<String> myout = new HashSet<String>();
-	    try {
-	    	String temp = null;
-			while((temp = my.readLine()) != null){
-				myout.add(temp);
-				myall++;
-				//System.out.println(my.readLine());
-				
-			}
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			String key = null;
-			while((key = sample.readLine()) != null){
-				all++;
-				if(myout.contains(key))
-					hit++;
-				
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		double precision = (double)hit/(double)myall;
-		double recall = (double)hit/(double)all;
-		double fmeasure = 2*precision*recall/(precision+recall);
-		System.out.println("Precision is " + precision);
-		System.out.println("Recall is " + recall);
-		System.out.println("F-measure is " + fmeasure);
 	}
+			
+//	    }
+//	    System.out.println("System performance");
+//	    BufferedReader my = null,sample=null;
+//	    int myall = 0;
+//	    int all = 0;
+//	    int hit = 0;
+//	    try {
+//			sample = new BufferedReader(new FileReader("src/main/resources/inputData/sample.out"));
+//			my = new BufferedReader(new FileReader("src/main/resources/outputfile.out"));
+//			
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	    
+//	    HashSet<String> myout = new HashSet<String>();
+//	    try {
+//	    	String temp = null;
+//			while((temp = my.readLine()) != null){
+//				myout.add(temp);
+//				myall++;
+//				//System.out.println(my.readLine());
+//				
+//			}
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		try {
+//			String key = null;
+//			while((key = sample.readLine()) != null){
+//				all++;
+//				if(myout.contains(key))
+//					hit++;
+//				
+//			}
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//		double precision = (double)hit/(double)myall;
+//		double recall = (double)hit/(double)all;
+//		double fmeasure = 2*precision*recall/(precision+recall);
+//		System.out.println("Precision is " + precision);
+//		System.out.println("Recall is " + recall);
+//		System.out.println("F-measure is " + fmeasure);
+//	}
 	
 	public void writeIntoFile(String geneId, String geneContent, int start, int end)
 			throws Exception {
