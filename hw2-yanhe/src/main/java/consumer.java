@@ -75,7 +75,7 @@ public class consumer extends CasConsumer_ImplBase {
 	    int all = 0;
 	    int hit = 0;
 	    try {
-			sample = new BufferedReader(new FileReader("src/main/resources/sample.out"));
+			sample = new BufferedReader(new FileReader("src/main/resources/inputData/sample.out"));
 			my = new BufferedReader(new FileReader("src/main/resources/outputfile.out"));
 			
 		} catch (FileNotFoundException e) {

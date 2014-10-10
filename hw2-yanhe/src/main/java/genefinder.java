@@ -1,4 +1,4 @@
-import java.io.File;
+//import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Iterator;
@@ -10,7 +10,6 @@ import org.apache.uima.cas.FSIterator;
 import com.aliasi.chunk.Chunk;
 import com.aliasi.chunk.ConfidenceChunker;
 import com.aliasi.util.AbstractExternalizable;
-//import com.aliasi.util.Strings;
 
 
 public class genefinder extends JCasAnnotator_ImplBase {
@@ -27,14 +26,15 @@ public class genefinder extends JCasAnnotator_ImplBase {
     // TODO Auto-generated method stub
     JCas jcas = aCas;
     //int count = 0;
-    
-    File modelFile = new File("src/main/resources/ne-en-bio-genetag.HmmChunker");
-    System.out.println("Reading chunker from file = " + modelFile);
+    String pathway = "/ne-en-bio-genetag.HmmChunker";
+    //File modelFile = new File("src/main/resources/ne-en-bio-genetag.HmmChunker");
+    System.out.println("Reading chunker from file = " + pathway);
     FSIterator it = jcas.getAnnotationIndex(sentence.type).iterator();
 
     ConfidenceChunker chunker = null;
 	try {
-		chunker = (ConfidenceChunker) AbstractExternalizable.readObject(modelFile);
+		//chunker = (ConfidenceChunker) AbstractExternalizable.readObject(modelFile);
+		chunker = (ConfidenceChunker) AbstractExternalizable.readResourceObject(pathway);
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -44,7 +44,6 @@ public class genefinder extends JCasAnnotator_ImplBase {
 	}
    
 	DecimalFormat ft = new DecimalFormat("#0.0000");
-	//System.out.println("Rank          Conf      Span    Type     Gene");
     while(it.hasNext()){
     	//System.out.println("iterator");
         sentence ann = (sentence)it.get();  
@@ -65,21 +64,9 @@ public class genefinder extends JCasAnnotator_ImplBase {
             double conf = Math.pow(2.0, c.score());
             //System.out.println(ft.format(conf));
             
-            if(conf > 0.05){//only leave those whose confidence make sense
+            if(conf > 0.06){
             
             	gene = (sen.substring(c.start(), c.end()));
-            	//System.out.println(c.start());
-            	//System.out.println(c.end());
-            	//System.out.println(gene);
-                 
-//            	System.out.println(n + " "
-//            			+ ft.format(conf)
-//            			+ "       (" + c.start()
-//            			+ ", " + c.end()
-//            			+ ")       " + c.type()
-//            			+ "         " + gene);
-            
-            	//do not forget that the space should be got rid of 
             	int begin = c.start() ;
             	int end = c.end();
             	begin = begin - countBlank(sen.substring(0,begin)) ;
@@ -104,9 +91,7 @@ public class genefinder extends JCasAnnotator_ImplBase {
       
   }
     
-    
-
-  
+ 
   private int countBlank(String s){
     int count = 0;
     for(int i = 0; i < s.length(); i++) {

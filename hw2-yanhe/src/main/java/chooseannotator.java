@@ -53,7 +53,7 @@ public class chooseannotator extends JCasAnnotator_ImplBase {
 			Double val = (Double) entry.getValue();
 			String Key = (String) entry.getKey(); 
 			if(Key.charAt(14) == ' '){
-				if(val >= 0.5){
+				if(val >= 0.7){
 					gene g = new gene(jcas);
 					//System.out.println(Key);
 					g.setID(Key.substring(0, 14));
@@ -62,7 +62,7 @@ public class chooseannotator extends JCasAnnotator_ImplBase {
             		g.setContent(Key.substring(23));
             		g.addToIndexes();
 				}
-				if(val < 0.5){
+				if(val < 0.7){
 					if(abners.contains(Key)){
 						gene g = new gene(jcas);
 						g.setID(Key.substring(0, 14));

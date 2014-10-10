@@ -9,7 +9,7 @@
                 <nameValuePair>
                     <name>InputFile</name>
                     <value>
-                        <string>/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/inputData/inputfile.in</string>
+                        <string>src/main/resources/inputData/inputfile.in</string>
                     </value>
                 </nameValuePair>
             </configurationParameterSettings>
@@ -43,7 +43,7 @@
                 <nameValuePair>
                     <name>OutputFile</name>
                     <value>
-                        <string>/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/outputfile.out</string>
+                        <string>src/main/resources/hw2-yanhe.out</string>
                     </value>
                 </nameValuePair>
             </configurationParameterSettings>
