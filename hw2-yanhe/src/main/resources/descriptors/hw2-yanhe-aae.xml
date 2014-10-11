@@ -3,39 +3,41 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="sentencefinder">
-      <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/sentencefinder.xml"/>
-    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="genefinder">
-      <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/genefinder.xml"/>
+      <import location="genefinder.xml"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="geneabner">
-      <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/geneabner.xml"/>
+    <delegateAnalysisEngine key="sentencefinder">
+      <import location="sentencefinder.xml"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="chooseAnnotator">
-      <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/chooseAnnotator.xml"/>
+  <delegateAnalysisEngine key="geneabner">
+      <import location="geneabner.xml"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="chooseAnnotator">
+      <import location="chooseAnnotator.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
-    <name>hw2-yanhe-aae</name>
+    <name>aeDescriptor</name>
     <description/>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters/>
+    <configurationParameters searchStrategy="language_fallback"/>
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
         <node>sentencefinder</node>
         <node>genefinder</node>
-        <node>geneabner</node>
-        <node>chooseAnnotator</node>
+      <node>geneabner</node>
+      <node>chooseAnnotator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
     <capabilities>
       <capability>
         <inputs/>
-        <outputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">sentence</type>
+        </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>

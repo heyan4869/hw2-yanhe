@@ -71,18 +71,25 @@ public class ChooseAnnotator extends JCasAnnotator_ImplBase {
 		  if(abners.contains(Key)){
 			Gene g = new Gene(jcas);
 		    g.setID(Key.substring(0, 14));
-			//System.out.println(Key.substring(0, 14));
 			g.setBegin(Integer.parseInt(Key.substring(15, 18)));
-			//System.out.println(Key.substring(15, 17));
 			g.setEnd(Integer.parseInt(Key.substring(19, 22)));
 			g.setContent(Key.substring(23));
 			g.addToIndexes();
 		  }
 		}
 	  }
-			//it.next();
     }
-
+	Iterator abnerit = abners.iterator();
+	while(abnerit.hasNext()){
+		String key = (String)abnerit.next();
+		if(key.charAt(14) == ' '){
+			Gene g = new Gene(jcas);
+			g.setID(key.substring(0, 14));
+			g.setBegin(Integer.parseInt(key.substring(15, 18)));
+			g.setEnd(Integer.parseInt(key.substring(19, 22)));
+			g.setContent(key.substring(23));
+			g.addToIndexes();	
+		}
+	}
   }
-
 }

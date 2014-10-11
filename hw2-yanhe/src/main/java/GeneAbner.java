@@ -23,7 +23,7 @@ public class GeneAbner extends JCasAnnotator_ImplBase {
 	public void process(JCas aCas) throws AnalysisEngineProcessException {
 	  JCas jcas = aCas;
 	  FSIterator it = jcas.getAnnotationIndex(Sentence.type).iterator();
-      Tagger t = new Tagger();
+      Tagger t = new Tagger(1);
 	  int begin;
 	  int end;
 		
