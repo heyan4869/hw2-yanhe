@@ -3,41 +3,39 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="genefinder">
-      <import location="genefinder.xml"/>
-    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="sentencefinder">
-      <import location="sentencefinder.xml"/>
+      <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/sentencefinder.xml"/>
     </delegateAnalysisEngine>
-  <delegateAnalysisEngine key="geneabner">
-      <import location="geneabner.xml"/>
+    <delegateAnalysisEngine key="genefinder">
+      <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/genefinder.xml"/>
     </delegateAnalysisEngine>
-  <delegateAnalysisEngine key="chooseAnnotator">
-      <import location="chooseAnnotator.xml"/>
+    <delegateAnalysisEngine key="geneabner">
+      <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/geneabner.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="chooseAnnotator">
+      <import location="/Users/Yan/git/hw2-yanhe/hw2-yanhe/src/main/resources/descriptors/chooseAnnotator.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
-    <name>aeDescriptor</name>
+    <name>hw2-yanhe-aae</name>
     <description/>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters searchStrategy="language_fallback"/>
+    <configurationParameters/>
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
         <node>sentencefinder</node>
         <node>genefinder</node>
-      <node>geneabner</node>
-      <node>chooseAnnotator</node>
+        <node>geneabner</node>
+        <node>chooseAnnotator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
     <capabilities>
       <capability>
         <inputs/>
-        <outputs>
-          <type allAnnotatorFeatures="true">sentence</type>
-        </outputs>
+        <outputs/>
         <languagesSupported/>
       </capability>
     </capabilities>
